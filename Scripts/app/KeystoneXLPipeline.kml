@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+  <name>Keystone XL Pipeline</name>
+  <description><![CDATA[Pipeline locations approximate. For more information, see http://www.transcanada.com/keystone_pipeline_map.html]]></description>
+  <Style id="style5">
+    <LineStyle>
+      <color>D9000066</color>
+      <width>5</width>
+    </LineStyle>
+  </Style>
+  <Style id="style6">
+    <LineStyle>
+      <color>73FF0000</color>
+      <width>5</width>
+    </LineStyle>
+  </Style>
+  <Style id="style9">
+    <LineStyle>
+      <color>D9009900</color>
+      <width>5</width>
+    </LineStyle>
+  </Style>
+  <Style id="style1">
+    <LineStyle>
+      <color>730066FF</color>
+      <width>5</width>
+    </LineStyle>
+  </Style>
+  <Style id="style11">
+    <LineStyle>
+      <color>730066FF</color>
+      <width>5</width>
+    </LineStyle>
+  </Style>
+  <Style id="style7">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style10">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style2">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style4">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style12">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style3">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style8">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Placemark>
+    <name>Hardisty to Steele City, Wood River and Patoka</name>
+    <description><![CDATA[<div dir="ltr">Completed; in service June 2010</div>]]></description>
+    <styleUrl>#style5</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -111.335449,52.656395,0.000000
+        -111.379395,51.358063,0.000000
+        -97.668457,49.539471,0.000000
+        -97.050476,40.033924,0.000000
+        -90.082397,38.848263,0.000000
+        -89.096375,38.756226,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Hardisty to Steele City</name>
+    <description><![CDATA[<div dir="ltr">In regulatory review; target 2013</div>]]></description>
+    <styleUrl>#style6</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -111.071777,52.669720,0.000000
+        -111.159668,51.440311,0.000000
+        -104.304199,46.346928,0.000000
+        -97.050476,40.032871,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Steele City to Cushing</name>
+    <description><![CDATA[<div dir="ltr">Completed; in service January 2011</div>]]></description>
+    <styleUrl>#style9</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -97.050476,40.029716,0.000000
+        -96.770325,35.988007,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Cushing to Houston and Port Arthur</name>
+    <description><![CDATA[<div dir="ltr">In regulatory review; target 2013</div>]]></description>
+    <styleUrl>#style1</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -96.770325,35.982452,0.000000
+        -96.899414,34.741611,0.000000
+        -93.801270,29.783449,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Cushing to Houston and Port Arthur</name>
+    <description><![CDATA[<div dir="ltr">In regulatory review; target 2013</div>]]></description>
+    <styleUrl>#style11</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -94.251709,30.514950,0.000000
+        -95.394287,29.802519,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Hardisty, Canada</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style7</styleUrl>
+    <Point>
+      <coordinates>-111.303261,52.674717,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Steele City, NE</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style10</styleUrl>
+    <Point>
+      <coordinates>-97.049103,40.032871,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Wood River, IL</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-90.081711,38.848999,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Patoka, IL</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style4</styleUrl>
+    <Point>
+      <coordinates>-89.090881,38.766933,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Cushing, OK</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style12</styleUrl>
+    <Point>
+      <coordinates>-96.760712,35.982452,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Houston, TX</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style3</styleUrl>
+    <Point>
+      <coordinates>-95.394287,29.735762,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Port Arthur, TX</name>
+    <description><![CDATA[]]></description>
+    <styleUrl>#style8</styleUrl>
+    <Point>
+      <coordinates>-93.806763,29.745302,0.000000</coordinates>
+    </Point>
+  </Placemark>
+</Document>
+</kml>
