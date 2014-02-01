@@ -55,6 +55,11 @@ function ViewModel() {
         self.photoList.removeAll();
     }
 
+    this.ClearPreviousSite = function () {
+        self.photoList.removeAll();
+
+    }
+
 
     // load methods stuff view model and call map update
     this.loadSites = function (arrayOjson) {

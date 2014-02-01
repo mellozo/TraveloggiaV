@@ -9,7 +9,6 @@ $(document).on("mobileinit", function () {
 
 $(document).ready(function () {
 
-    
     SetMapSize();
 
     InitMap();
@@ -23,24 +22,15 @@ $(document).ready(function () {
         window.traveloggia.CRUD.getMapsSitesPhotos(window.traveloggia.ViewModel.loadMaps);
     }
 
-
     ko.applyBindings(window.traveloggia.ViewModel);
-
-    
-   
-
 
 });
 
 $(window).resize(function () {
 
-   // alert("window resized");
-    //var activePage = $.mobile.activePage[0].id;
-    //if (activePage == "map") {
-      //  SetMapSize();
         clearTimeout(this.id);
         this.id = setTimeout(SetMapSize, 300);
-    //}
+   
 });
 
 

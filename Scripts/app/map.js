@@ -158,23 +158,23 @@ function ClearMarkersFromMap() {
 
 
 
-function getSize() {
+//function getSize() {
 
-    var x=  $(window).width();
-    alert(x);
-}
+//    var x=  $(window).width();
+//    alert(x);
+//}
 
 
-function LoadKML() {
+//function LoadKML() {
 
-    $('#map_canvas').gmap({'callback':function() {         
-      var x =   this.loadKML('dog_feed_1', 'http://kmltools.nobletech.com/kml/Fuenf%20Seidla%20Steig');
-    }
-    });
+//    $('#map_canvas').gmap({'callback':function() {         
+//      var x =   this.loadKML('dog_feed_1', 'http://kmltools.nobletech.com/kml/Fuenf%20Seidla%20Steig');
+//    }
+//    });
 
-    //$('#map_canvas').gmap('loadKML', 'dog_feed_1', 'http://kmltools.nobletech.com/kml/Fuenf%20Seidla%20Steig');
+//    //$('#map_canvas').gmap('loadKML', 'dog_feed_1', 'http://kmltools.nobletech.com/kml/Fuenf%20Seidla%20Steig');
 
-    //http://www.motherjones.com/environment/2011/01/transcanada-keystone-pipeline-map#spill
-    $('#map_canvas').gmap('loadKML', 'dog_feed_1', 'http://maps.google.com/maps/ms?ie=UTF8&t=m&vpsrc=6&source=embed&oe=UTF8&msa=0&msid=211388461394182029991.0004b5442c27584e8e261&output=kml');
-}
+//    //http://www.motherjones.com/environment/2011/01/transcanada-keystone-pipeline-map#spill
+//    $('#map_canvas').gmap('loadKML', 'dog_feed_1', 'http://maps.google.com/maps/ms?ie=UTF8&t=m&vpsrc=6&source=embed&oe=UTF8&msa=0&msid=211388461394182029991.0004b5442c27584e8e261&output=kml');
+//}
 

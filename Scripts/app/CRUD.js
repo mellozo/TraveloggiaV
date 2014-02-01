@@ -5,7 +5,9 @@
 window.traveloggia.CRUD = function (ko) {
     var self = this;
 
-    this.repository=null;
+    this.repository = null;
+    this.mapIndex = 0;
+    this.siteIndex = 0;
   
   // get methods make ajax call to DB web service  
     // wonder of EF gets child sites and photos 

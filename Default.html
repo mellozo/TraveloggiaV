@@ -145,26 +145,21 @@
         <script>
 
             function melnesser(mel) {
-
-
                 for (var i = 0; i < window.traveloggia.ViewModel.mapList().length; i++) {
 
                     if (window.traveloggia.ViewModel.mapList()[i].MapID() == mel.id) {
+                        window.traveloggia.CRUD.mapIndex = i;
                         window.traveloggia.ViewModel.selectedMap(window.traveloggia.ViewModel.mapList()[i]);
                         var mapSites = window.traveloggia.CRUD.repository[i].Sites;
+                        window.traveloggia.ViewModel.ClearPreviousMap();
+                        ClearMarkersFromMap();
+                        $.mobile.changePage("#map", { transition: "slideup" });
+
                         if (mapSites.length > 0) {
-                            window.traveloggia.ViewModel.ClearPreviousMap();
-                            ClearMarkersFromMap();
-
-                            $.mobile.changePage("#map", { transition: "slideup" });
                             window.traveloggia.ViewModel.loadSites(mapSites);
-
-
+                            return;
                         }
-
-                        return;
                     }
-
                 }
             }
         </script>
@@ -249,10 +244,19 @@
             $('#sitelist').live("pageinit", function () {
             });
 
+
+
+
             function selectSite(mel) {
                 for (var i = 0; i < window.traveloggia.ViewModel.siteList().length; i++) {
                     if (window.traveloggia.ViewModel.siteList()[i].SiteID() == mel.id) {
+                        window.traveloggia.CRUD.siteIndex=i;
                         window.traveloggia.ViewModel.selectedSite(window.traveloggia.ViewModel.siteList()[i]);
+                        window.traveloggia.ViewModel.clearPreviousSite();
+                        var sitePhotos = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[i].Photos;
+                      
+                        if(sitePhotos.length >0)
+                            window.traveloggia.ViewModel.loadPhotos(sitePhotos);
                         $.mobile.changePage("#site", { transition: "slideup" });
                         return;
                     }
