@@ -2,239 +2,246 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI_P69-8Wc0QSSE2OUWRFrTWrQ2T6xt5A&sensor=false"></script>
-    <link rel="stylesheet"  href="http://fonts.googleapis.com/css?family=Cinzel" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cinzel" />
     <link rel="stylesheet" href="Styles/traveloggia-theme-v3.css" />
     <link rel="stylesheet" href="Styles/TraveloggiaCustomStyles.css" />
-    <link  rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" /> 
-   
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+
 
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <script  src="Scripts/jquery.ui.map.full.min.js"></script>
-    <script src="Scripts/jquery.ui.touch-punch.min.js" ></script>
+    <script src="Scripts/jquery.ui.map.full.min.js"></script>
+    <script src="Scripts/jquery.ui.touch-punch.min.js"></script>
 
-    <script  src='http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js '></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js '></script>
 
 
 
     <title>traveloggiaV</title>
-    
+
 </head>
-<body >
+<body>
 
 
-<!-- map page-->
-<div data-role="page" id="map" >
-    
-      <script type="text/javascript">
-          $('#map').live("pageshow", function () {
-       
-          });
-          $('#map').live("pageinit", function () {
-          });
+    <!-- map page-->
+    <div data-role="page" id="map">
+
+        <script type="text/javascript">
+
+            $('#map').live("pageshow", function () {
+               
+                setTimeout(SetMapSize, 300);
+             
+            });
+            $('#map').live("pageinit", function () {
+
+            });
         </script>
-    <div data-role="content" data-theme="c" style="padding:0;" >
+        <div data-role="content" data-theme="c" style="padding: 0;">
 
-                 <div class="main">
-                     <div id="map_canvas" ></div>
-                 </div>
+            <div class="main">
+                <div id="map_canvas"></div>
+            </div>
 
-                 <div class="side">
-                     <div id="infoPane">                     
-                         <h2 data-bind="text:selectedMap()? selectedMap().MapName:' ' "></h2>
-                    
-                        <table style="width:100%;padding:15px;">
-                            
-                            <tr>
-                                <td style="width:35%;vertical-align:top">Name</td>
-                                <td data-bind=" text:selectedSite()?selectedSite().Name:' '"></td>
-                            </tr>
-                            <tr>
-                                <td style="width:35%;vertical-align:top">Description</td>
-                                <td data-bind="text:selectedSite()?selectedSite().Description:' '"></td>
-                            </tr>
-                             <tr>
-                                <td style="width:35%;vertical-align:top">Address</td>
-                                <td data-bind="text:selectedSite()?selectedSite().Address:' '"></td>
-                            </tr>
-                        </table>
-                 </div>
+            <div class="side">
+                <div id="infoPane">
+                    <h2 data-bind="text: selectedMap() ? selectedMap().MapName : ' ' "></h2>
 
-                     <div id="imagePane">
-                         <div style="margin:20px;">
-                         <img data-bind="attr: { src:selectedImage()? selectedImage().path: 'Images/Coolcompass.gif' } " style="width:100%" />
-                         </div>
-                     </div>
+                    <table style="width: 100%; padding: 15px;">
+
+                        <tr>
+                            <td style="width: 35%; vertical-align: top">Name</td>
+                            <td data-bind=" text: selectedSite() ? selectedSite().Name : ' '"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 35%; vertical-align: top">Description</td>
+                            <td data-bind="text: selectedSite() ? selectedSite().Description : ' '"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 35%; vertical-align: top">Address</td>
+                            <td data-bind="text: selectedSite() ? selectedSite().Address : ' '"></td>
+                        </tr>
+                    </table>
                 </div>
 
-       </div>
- </div>
-  
+                <div id="imagePane">
+                    <div style="margin: 20px;">
+                        <img data-bind="attr: { src: selectedImage() ? selectedImage().path : 'Images/Coolcompass.gif' } " style="width: 100%" />
+                    </div>
+                </div>
+            </div>
 
-
-    
-<div  id="menuContainer" style="display:inline;position:absolute;z-index:79;top:0px;width:130px;height:100%;">
-
-                  
-<img  id="menuToggle" src="Images/right arrow.png" style="position:relative;z-index:89;top:50%;height:60px;width:55px;float:left;" /> 
-  <!-- see through sliding strip nav for map page-->  
-<div id="navstrip" class="teal" style="position:relative;z-index:97;width:70px;right:0px;top:0px;height:100%;float:right;" >
-
-    <div style="height:2%;" id="spacer"></div>
-
-    <div class="menuitem">
-         <span  id="spnMapList"  class="bottomSpacer" >map list</span>
-        <a href="#maplist" > 
-        <img id="imgMapList" src="Images/steering.png" class="icon" /></a>
+        </div>
     </div>
 
-     <div class="menuitem">
-          <span  id="Span1"  class="bottomSpacer" >map</span>
-        <a href="#map" >
-        <img id="img1" src="Images/hawiianIslands.png" class="icon" /></a>
-    </div>
-       <div class="menuitem">
-         <span id="Span6" class="bottomSpacer">journal</span>      
-        <a  href="http://localhost/TraveloggiaV/Journal.html" rel="external" style="position:relative;margin:0;display:inline">
-        <img src="Images/books.png" class="icon"/></a>
-    </div>
-   <!-- <div class="menuitem">
+
+
+
+    <div id="menuContainer" style="display: inline; position: absolute; z-index: 79; top: 0px; width: 130px; height: 100%;">
+
+
+        <img id="menuToggle" src="Images/right arrow.png" style="position: relative; z-index: 89; top: 50%; height: 60px; width: 55px; float: left;" />
+        <!-- see through sliding strip nav for map page-->
+        <div id="navstrip" class="teal" style="position: relative; z-index: 97; width: 70px; right: 0px; top: 0px; height: 100%; float: right;">
+
+            <div style="height: 2%;" id="spacer"></div>
+
+            <div class="menuitem">
+                <span id="spnMapList" class="bottomSpacer">map list</span>
+                <a href="#maplist">
+                    <img id="imgMapList" src="Images/steering.png" class="icon" /></a>
+            </div>
+
+            <div class="menuitem">
+                <span id="Span1" class="bottomSpacer">map</span>
+                <a href="#map">
+                    <img id="img1" src="Images/hawiianIslands.png" class="icon" /></a>
+            </div>
+            <div class="menuitem">
+                <span id="Span6" class="bottomSpacer">journal</span>
+                <a href="http://localhost/TraveloggiaV/Journal.html" rel="external" style="position: relative; margin: 0; display: inline">
+                    <img src="Images/books.png" class="icon" /></a>
+            </div>
+            <!-- <div class="menuitem">
         <span id="Span5" class="bottomSpacer">site</span>
         <a  href="#site" >
         <img src="Images/Palms.png" class="icon"/></a>
     </div>-->
 
-    <div class="menuitem">
-         <span id="Span2" class="bottomSpacer">site list</span>
-        <a  href="#sitelist"   >
-        <img src="Images/scroll.png" class="icon"/>  </a>
+            <div class="menuitem">
+                <span id="Span2" class="bottomSpacer">site list</span>
+                <a href="#sitelist">
+                    <img src="Images/scroll.png" class="icon" />
+                </a>
+            </div>
+
+            <div class="menuitem">
+                <span id="Span3" class="bottomSpacer">photos</span>
+                <a href="#catalog" style="position: relative; margin: 0; display: inline">
+                    <img src="Images/chest.png" class="icon" />
+                </a>
+            </div>
+
+            <div class="menuitem">
+                <span id="Span4" class="bottomSpacer">videos</span>
+                <a href="#album" style="position: relative; margin: 0; display: inline">
+                    <img src="Images/sun.png" class="icon" /></a>
+            </div>
+
+
+
+        </div>
     </div>
 
-    <div class="menuitem">
-         <span id="Span3" class="bottomSpacer" >photos</span>
-        <a  href="#catalog" style="position:relative;margin:0;display:inline">
-        <img src="Images/chest.png" class="icon"/>  </a>
-    </div>
-           
-    <div class="menuitem">
-         <span id="Span4" class="bottomSpacer">videos</span>      
-        <a  href="#album" style="position:relative;margin:0;display:inline">
-        <img src="Images/sun.png" class="icon"/></a>
-    </div>
-
-   
-
-</div>
-</div>
 
 
 
+    <!--map list page-->
+    <div id="maplist" data-role="page" data-theme="b">
+        <script>
 
- <!--map list page--> 
-<div  id="maplist" data-role="page" data-theme="b" >
-    <script>
-
-        function melnesser(mel) {
-          
-     
-            for(var i=0; i<window.traveloggia.ViewModel.mapList().length; i++)
-            {
-              
-                if ( window.traveloggia.ViewModel.mapList()[i].MapID() == mel.id) {
-                    window.traveloggia.ViewModel.selectedMap(window.traveloggia.ViewModel.mapList()[i]);
-                    var mapSites = window.traveloggia.CRUD.repository[i].Sites;
-                    if (mapSites.length > 0)
-                    {
-                        window.traveloggia.ViewModel.ClearPreviousMap();
-                        ClearMarkersFromMap();
-
-                        $.mobile.changePage("#map", { transition: "slideup" });
-                        window.traveloggia.ViewModel.loadSites(mapSites);
+            function melnesser(mel) {
 
 
-                    }
-                            
+                for (var i = 0; i < window.traveloggia.ViewModel.mapList().length; i++) {
+
+                    if (window.traveloggia.ViewModel.mapList()[i].MapID() == mel.id) {
+                        window.traveloggia.ViewModel.selectedMap(window.traveloggia.ViewModel.mapList()[i]);
+                        var mapSites = window.traveloggia.CRUD.repository[i].Sites;
+                        if (mapSites.length > 0) {
+                            window.traveloggia.ViewModel.ClearPreviousMap();
+                            ClearMarkersFromMap();
+
+                            $.mobile.changePage("#map", { transition: "slideup" });
+                            window.traveloggia.ViewModel.loadSites(mapSites);
+
+
+                        }
+
                         return;
                     }
-              
+
+                }
             }
-        }
-    </script>
-    <div  data-role="header">
-        <h1>Map List</h1>
-        <div data-role="collapsible" data-collapsed="true" style="background-color:#CDDBCD">
-                <h3> create new map </h3>
-            <div >
-                name:
+        </script>
+        <div data-role="header">
+            <h1>Map List</h1>
+            <div data-role="collapsible" data-collapsed="true" style="background-color: #CDDBCD">
+                <h3>create new map </h3>
+                <div>
+                    name:
                 <input data-bind="value: newMapName" />
-                      
-                <button  data-inline="true" value="Submit"></button>
-           </div>
+
+                    <button data-inline="true" value="Submit"></button>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-role="content" style="overflow-y: scroll">
+
+            <ul id="mapSelector" data-role="listview" data-bind="foreach: mapList">
+                <li>
+                    <a href="#" data-bind="text: MapName, attr: { id: MapID }" onclick="melnesser(this)"></a>
+
+                </li>
+            </ul>
+
         </div>
 
     </div>
 
-    <div data-role="content" style="overflow-y:scroll">
-
-        <ul  id="mapSelector"  data-role="listview"  data-bind="foreach: mapList" >
-        <li >
-            <a href="#"  data-bind="text: MapName, attr: { id:MapID }" onclick="melnesser(this)"></a>
-
-        </li>
-        </ul>
-
-    </div>
-
-</div>
 
 
 
-
-<!-- site page-->
-<div id="site" data-role="page" >
-      <script type="text/javascript">
-          $('#site').live("pageshow", function () {
-            //  var currentSiteId = window.traveloggia.ViewModel.selectedSite.SiteID;
-           //   window.traveloggia.CRUD.getJournal(9778);
-            //  window.traveloggia.CRUD.getJournal(currentSiteId);
-          });
-          $('#site').live("pageinit", function () {
-          });
+    <!-- site page-->
+    <div id="site" data-role="page">
+        <script type="text/javascript">
+            $('#site').live("pageshow", function () {
+                //  var currentSiteId = window.traveloggia.ViewModel.selectedSite.SiteID;
+                //   window.traveloggia.CRUD.getJournal(9778);
+                //  window.traveloggia.CRUD.getJournal(currentSiteId);
+            });
+            $('#site').live("pageinit", function () {
+            });
         </script>
 
-    <div data-role="header">
-        <h1>site</h1>  
-    </div>
-    
-    <div data-role="content" id="siteContent" data-theme="d">
+        <div data-role="header">
+            <h1>site</h1>
+        </div>
+
+        <div data-role="content" id="siteContent" data-theme="d">
             <form data-theme="a">
-	                                <fieldset class="ui-grid-b">
-                                        <legend></legend>
-	                                        <div class="ui-block-a" ><label >Name:</label></div>
-	                                        <div class="ui-block-b"><span data-bind="text:selectedSite()?selectedSite().Name: ''"></span></div>
-                                                <div class="ui-block-a"><label >Address:</label></div>
-	                                        <div class="ui-block-b"><span data-bind="text: selectedSite()? selectedSite().Address : '' "></span></div>
-                                                <div class="ui-block-a" ><label >Description:</label></div>
-	                                        <div class="ui-block-b"><span data-bind="text:selectedSite()? selectedSite().Description:'' "></span></div>	 
-       
-                                    </fieldset>
-       
-                                 <!--   <textarea style="height:400px;width:80%;margin:12px, 12px, 12px,12px"  id="journal"  data-bind="text: selectedJournal() ? selectedJournal().Text : ''" placeholder="journal entry" ></textarea>-->
-        </form>
-     </div>
+                <fieldset class="ui-grid-b">
+                    <legend></legend>
+                    <div class="ui-block-a">
+                        <label>Name:</label></div>
+                    <div class="ui-block-b"><span data-bind="text: selectedSite() ? selectedSite().Name : ''"></span></div>
+                    <div class="ui-block-a">
+                        <label>Address:</label></div>
+                    <div class="ui-block-b"><span data-bind="text: selectedSite() ? selectedSite().Address : '' "></span></div>
+                    <div class="ui-block-a">
+                        <label>Description:</label></div>
+                    <div class="ui-block-b"><span data-bind="text: selectedSite() ? selectedSite().Description : '' "></span></div>
 
-</div>
+                </fieldset>
+
+                <!--   <textarea style="height:400px;width:80%;margin:12px, 12px, 12px,12px"  id="journal"  data-bind="text: selectedJournal() ? selectedJournal().Text : ''" placeholder="journal entry" ></textarea>-->
+            </form>
+        </div>
+
+    </div>
 
 
 
 
-<!--site list page-->
-<div id="sitelist" data-role="page"  data-theme="a" style="min-height:100%;max-height:100%;overflow:visible" >
-    
+    <!--site list page-->
+    <div id="sitelist" data-role="page" data-theme="a" style="min-height: 100%; max-height: 100%; overflow: visible">
+
         <script type="text/javascript">
             $('#sitelist').live("pageshow", function () {
                 $('#listosites').listview('refresh');
@@ -253,162 +260,155 @@
             }
         </script>
 
-    <div data-role="header" >
-        <h1>site list</h1>
-    </div>
-
-    <div data-role="content" style="overflow-y:scroll" >
-           
-                <ul id="listosites"  data-role="listview"  data-bind="foreach: siteList" >
-                        <li ><a href=""  data-bind="text: Name , attr: { id: SiteID }" onclick="selectSite(this)"></a></li>
-                </ul>
-            
-    </div>
-</div>
-
-
-
-<!--photo list page aka catalog-->
-<div id="catalog" data-role="page"  data-theme="a"  style="min-height:100%;overflow:hidden">
-  <script type="text/javascript">
-      $('#catalog').live("pageshow", function () {
-          $('#contact').listview('refresh');
-      });
-      $('#catalog').live("pageinit", function () {
-
-      });
-
-      function showAlbum() {
-          var selected = ko.toJS($(this)[0]);
-          window.traveloggia.ViewModel.selectedImage(selected);
-
-          window.traveloggia.ViewModel.selectedSite(selected.Site);
-
-          $.mobile.changePage("#photo", { transition: "slideup" });
-      }
-
- </script>
-
-    <div data-role="header">
-         <h1>catalog</h1>
-    </div>
-    
-    <div data-role="content" >
-
-              <ul id="contact"   data-role="listview"  data-bind="foreach: photoList"   style="overflow-y:scroll;margin-right:18px;height:100%">
-                        <li><table style="width:100%">
-                            <tr>
-
-                                <td style="width:65%">
-                                     
-                                     <img  style="margin:3px;width:100%;"     data-bind="attr: { src: path }, click: showAlbum"/>
-                             </td>
-                                <td style="width:35%">
-                                      <div  data-bind="text: Caption" style="font-weight:200;"></div>
-                                </td>
-                            </tr>
-
-
-                            </table>
-                                  
-                                            
-                                               
-                                   
-                        </li>
-                </ul>
-
-   </div>
-</div>
-
-
-
-<!--photo page-->
-<div  id="photo" data-role="page" style="min-height:100%;max-height:100%;overflow:hidden;">
-     <script type="text/javascript">
-         $('#photo').live("pageshow", function () {
-             // $('#enlarged').img('refresh');
-         });
-         $('#photo').live("pageinit", function () {
-
-         });
-
-            </script>
-    <div data-role="content" data-theme="b">
-      
-        
-        <div  style="border:0;margin:0;padding:0">
-             <img  id="enlarged" style="width:90%;margin:3%" data-bind="attr: { src: selectedImage() ? selectedImage().path : 'Images/Coolcompass.gif' } " ></img>
-         </div>
-
-   </div>
-</div>
-
-
-
-<!-- video page-->
-<div id="album" data-role="page" data-theme="c">
-   
-    <div data-role="content" >
-
- <h3>Find relevant You Tube Videos</h3>
- <div data-role="collapsible-set" data-inset="false" style="height:100%">
-    <div id="search"  data-role="collapsible" data-collapsed="false" >
-        <h3>Search</h3>
-
-        <div data-role="fieldcontain">
-         
-            <fieldset data-role="controlgroup">
-                   <legend></legend>
-                <label for="searchTerms">
-                    search terms
-                </label>
-                <input  id="searchTerms" value="sherlock benedict cumberbatch" type="text" placeholder=""/>
-            </fieldset>
+        <div data-role="header">
+            <h1>site list</h1>
         </div>
 
-        <button data-inline="true"  id="btnSearch" value="Search" onclick ="GetData()" ></button>
-    </div>
+        <div data-role="content" style="overflow-y: scroll">
 
-    <div data-role="collapsible" id="results" >
-        <h3>Results</h3>
-        <ul  id="listResults" data-role="listview" style="height:90%;overflow-y:scroll;"></ul>
-    </div>
+            <ul id="listosites" data-role="listview" data-bind="foreach: siteList">
+                <li><a href="" data-bind="text: Name, attr: { id: SiteID }" onclick="selectSite(this)"></a></li>
+            </ul>
 
-    <div data-role="collapsible" id="video" >
-        <h3>Player</h3>
-        <iframe id="player"   style="min-width:200px;min-height:200px;margin:auto"  ></iframe>
+        </div>
     </div>
 
 
-</div>
 
-         </div>
-</div>
+    <!--photo list page aka catalog-->
+    <div id="catalog" data-role="page" data-theme="a" style="min-height: 100%; overflow: hidden">
+        <script type="text/javascript">
+            $('#catalog').live("pageshow", function () {
+                $('#contact').listview('refresh');
+            });
+            $('#catalog').live("pageinit", function () {
+
+            });
+
+            function showAlbum() {
+                var selected = ko.toJS($(this)[0]);
+                window.traveloggia.ViewModel.selectedImage(selected);
+
+                window.traveloggia.ViewModel.selectedSite(selected.Site);
+
+                $.mobile.changePage("#photo", { transition: "slideup" });
+            }
+
+        </script>
+
+        <div data-role="header">
+            <h1>catalog</h1>
+        </div>
+
+        <div data-role="content">
+
+            <ul id="contact" data-role="listview" data-bind="foreach: photoList" style="overflow-y: scroll; margin-right: 18px; height: 100%">
+                <li>
+                    <table style="width: 100%; margin-bottom:25px;">
+                        <tr>
+                            <td style="width: 65%">
+                                <img style="box-sizing:border-box;padding:10px;width:100%" data-bind="attr: { src: path }, click: showAlbum" />
+                            </td>
+                            <td style="width: 35%">
+                                <div data-bind="text: Caption" style="font-weight: 200;box-sizing:border-box;padding-bottom:10px;"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+
+        </div>
+    </div>
 
 
 
-     <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>  
-   
+    <!--photo page-->
+    <div id="photo" data-role="page" style="min-height: 100%; max-height: 100%; overflow: hidden;">
+        <script type="text/javascript">
+            $('#photo').live("pageshow", function () {
+                // $('#enlarged').img('refresh');
+            });
+            $('#photo').live("pageinit", function () {
 
-<!--our stuff-->
-     <script type="text/javascript" src="Scripts/app/DataModels.js"></script>
+            });
+
+        </script>
+        <div data-role="content" data-theme="b">
+
+
+            <div style="border: 0; margin: 0; padding: 0">
+                <img id="enlarged" style="width: 90%; margin: 3%" data-bind="attr: { src: selectedImage() ? selectedImage().path : 'Images/Coolcompass.gif' } "/>
+            </div>
+            <div data-bind="text:selectedImage().Caption">monkey</div>
+        </div>
+    </div>
+
+
+
+    <!-- video page-->
+    <div id="album" data-role="page" data-theme="c">
+
+        <div data-role="content">
+
+            <h3>Find relevant You Tube Videos</h3>
+            <div data-role="collapsible-set" data-inset="false" style="height: 100%">
+                <div id="search" data-role="collapsible" data-collapsed="false">
+                    <h3>Search</h3>
+
+                    <div data-role="fieldcontain">
+
+                        <fieldset data-role="controlgroup">
+                            <legend></legend>
+                            <label for="searchTerms">
+                                search terms
+                            </label>
+                            <input id="searchTerms" value="sherlock benedict cumberbatch" type="text" placeholder="" />
+                        </fieldset>
+                    </div>
+
+                    <button data-inline="true" id="btnSearch" value="Search" onclick="GetData()"></button>
+                </div>
+
+                <div data-role="collapsible" id="results">
+                    <h3>Results</h3>
+                    <ul id="listResults" data-role="listview" style="height: 90%; overflow-y: scroll;"></ul>
+                </div>
+
+                <div data-role="collapsible" id="video">
+                    <h3>Player</h3>
+                    <iframe id="player" style="min-width: 200px; min-height: 200px; margin: auto"></iframe>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+
+
+    <!--our stuff-->
+    <script type="text/javascript" src="Scripts/app/DataModels.js"></script>
     <script type="text/javascript" src="Scripts/app/CRUD.js"></script>
-     <script type="text/javascript" src="Scripts/app/ViewModels.js"></script>
+    <script type="text/javascript" src="Scripts/app/ViewModels.js"></script>
     <script type="text/javascript" src="Scripts/app/map.js"></script>
-      <script type="text/javascript" src="Scripts/app/Video.js"></script>
+    <script type="text/javascript" src="Scripts/app/Video.js"></script>
     <script src="js/RibbonMenu.js"></script>
-   <script src="Scripts/app/AppInit.js"></script>
+    <script src="Scripts/app/AppInit.js"></script>
 
 
 
 
-     <script  src="Scripts/json2.js"></script>
-     <script type="text/javascript" src="Scripts/app/detectmobilebrowser.js"></script>
+    <script src="Scripts/json2.js"></script>
+    <script type="text/javascript" src="Scripts/app/detectmobilebrowser.js"></script>
     <script src="Scripts/jquery.easing.1.3.js"></script>
     <script src="Scripts/jquery.easing.compatibility.js"></script>
-  
 
 
 
-    </body>
+
+</body>
 </html>

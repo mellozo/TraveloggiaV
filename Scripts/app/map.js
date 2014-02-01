@@ -4,6 +4,7 @@ var map;
 var mapOptions;
 var currentLocation;
 var MarkerArray = [];
+var bounds=null;
 
 var mapTypeControlOptions = {
     mapTypeIds: [google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.ROADMAP],
@@ -32,6 +33,8 @@ function InitMap() {
                  mapOptions);
 
         });
+
+
     }
     else {
         alert("Geolocation API is not supported in your browser.");
@@ -49,56 +52,45 @@ function InitMap() {
 
         map = new google.maps.Map(document.getElementById("map_canvas"),
              mapOptions);
+
+      
         
     }
 
 
+    
+
 
 }
 
+    
 
 
-
-       $('#map').live("pageinit", function () {
-           
-           SetMenuSlideOuts();
-
-           $(window).resize(function () {
-               var activePage = $.mobile.activePage[0].id;
-               if (activePage == "map") {
-                   clearTimeout(this.id);
-                   this.id = setTimeout(SetMapSize, 300);
-               }
-           });// add this now instead of on ready because for some reason resize is called after init, even though you didnt resize
-
-       });// end init
-
-
-$('#map').live("pageshow", function () {
-  
-           
-});// end of page show aka re- initialize the page
-
-     
 function SetMapSize() {
-          
+
     var deviceWidth = $(window).width();
 
-    if(deviceWidth > 550)
+    if (deviceWidth > 550)
         deviceWidth = (deviceWidth * 66.66666) / 100;  //-30;
 
     var deviceHeight = $(window).height();// -30;// $('[data-role="page"]').first().height();
 
     $('#map_canvas').css({ 'width': deviceWidth, 'height': deviceHeight });
 
+    if (map) {
+        google.maps.event.trigger(map, 'resize');
+        if (bounds != undefined)
+            map.fitBounds(bounds);
+    }
+
 }
-         
+ 
 
 
 function AddSitesToMap(sites) {
     // seemingly redundant list used to clear markers by setting their map property to null and then the array to empty
     MarkerArray = new Array(sites.length);
-    var bounds = new google.maps.LatLngBounds();
+    bounds = new google.maps.LatLngBounds();
 
     for (var i = 0; i < sites.length; i++) {
 
@@ -149,6 +141,8 @@ function AddSitesToMap(sites) {
 }
 
 
+
+
 function ClearMarkersFromMap() {
     for (var i = 0; i < MarkerArray.length; i++) {
         if (MarkerArray[i]) {
@@ -162,9 +156,7 @@ function ClearMarkersFromMap() {
 
 }
 
-  ////  LoadKML();
 
- 
 
 function getSize() {
 

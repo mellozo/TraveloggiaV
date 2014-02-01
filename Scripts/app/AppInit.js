@@ -14,6 +14,8 @@ $(document).ready(function () {
 
     InitMap();
 
+    SetMenuSlideOuts();
+
     if (!window.traveloggia.ViewModel) {
 
         window.traveloggia.CRUD = new window.traveloggia.CRUD(ko);
@@ -24,10 +26,21 @@ $(document).ready(function () {
 
     ko.applyBindings(window.traveloggia.ViewModel);
 
-    //window.traveloggia.ViewModel.screenSize = $(window).width();
+    
+   
 
 
+});
 
+$(window).resize(function () {
+
+   // alert("window resized");
+    //var activePage = $.mobile.activePage[0].id;
+    //if (activePage == "map") {
+      //  SetMapSize();
+        clearTimeout(this.id);
+        this.id = setTimeout(SetMapSize, 300);
+    //}
 });
 
 
