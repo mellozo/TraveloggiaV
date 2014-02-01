@@ -19,7 +19,7 @@ function insertJournal(journalEntry, siteID, memberID) {
 
     $.ajax(
              {
-                 url: "http://localhost:7490/api/Journal",
+                 url: "http://localhost/TraveloggiaV_Services/api/Journal",
                  type: "POST",
                  dataType: "json",
                  data: Journal

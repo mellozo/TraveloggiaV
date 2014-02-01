@@ -103,7 +103,7 @@
             </div>
             <div class="menuitem">
                 <span id="Span6" class="bottomSpacer">journal</span>
-                <a href="http://localhost/TraveloggiaV/Journal.html" rel="external" style="position: relative; margin: 0; display: inline">
+                <a data-bind="attr: { href:  selectedSite() ?'http://localhost/TraveloggiaV/Journal.html?SiteID=' + selectedSite().SiteID:' ' }" rel="external" style="position: relative; margin: 0; display: inline">
                     <img src="Images/books.png" class="icon" /></a>
             </div>
             <!-- <div class="menuitem">
