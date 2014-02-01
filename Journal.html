@@ -270,58 +270,36 @@
 
     </div>
   
+    <!--third party-->
   <!-- used by wisiwig-->
-       <script src="js/advanced.js"></script>
-    <script src="js/wysihtml5-0.3.0.js"></script>
-  
-   
-      <script src="js/RibbonMenu.js"></script>
+        <script src="js/journal_thirdparty/advanced.js"></script>
+        <script src="js/journal_thirdparty/wysihtml5-0.3.0.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<!-- my stuff-->
+        <script src="js/journal/journalInit.js"></script>   
+        <script src="js/journal/RibbonMenu.js"></script>
+        <script src="js/journal/WebkitSpeech.js"></script>
+        <script src="js/journal/journalDAL.js"></script>
+        <script src="js/journal/JournalViewModel.js"></script>
 
          <script  src="Scripts/json2.js"></script>
      <script type="text/javascript" src="Scripts/app/detectmobilebrowser.js"></script>
  
-    
-    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
-
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-   
-        <script src="js/WebkitSpeech.js"></script>
-    <script src="js/currydal.js"></script>
-    <script src="js/KnockoutJournal.js"></script>
-    
+ 
         <script>
 
-            editor = new wysihtml5.Editor("wysihtml5-editor", {
-                toolbar: "wysihtml5-editor-toolbar",
-                stylesheets: ["http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css", "css/editor.css"],
-                parserRules: wysihtml5ParserRules
-            });
-
-            SetMenuSlideOuts();
-
-            //$("#menuContainer").draggable({ axis: "x" });
-
-            //$('#menuToggle').click(function () {
-
-            //    //  $("#navstrip").animate({ width: 'toggle' }, { duration: 'slow', easing: 'easeOutQuad' });// sadly this breaks flyouts
-
-            //    var src = $('#menuToggle').attr('src');
-
-            //    if (src == 'Images/right arrow.png') {
-            //        $("#navstrip").hide('slide', { direction: 'up' }, 1000);
-            //        // $("#navstrip").animate( {width: '0px' }, { duration: 'slow', easing: 'easeOutQuad' });
-            //        $('#menuToggle').attr('src', 'Images/left arrow.png');
-            //        $('#menuToggle').animate({ right: "-70px" }, { duration: 'slow', easing: 'easeOutBack' });
-            //    }
-            //    else {
-            //        $("#navstrip").show("slide", { direction: "down" }, 1000);
-            //        //  $("#navstrip").animate({ width: '70px' }, { duration: 'slow', easing: 'easeOutQuad' });
-            //        $('#menuToggle').attr('src', 'Images/right arrow.png');
-            //        $('#menuToggle').animate({ right: "0px" }, { duration: 'slow', easing: 'easeOutBack' });
-
-            //    }
+            //editor = new wysihtml5.Editor("wysihtml5-editor", {
+            //    toolbar: "wysihtml5-editor-toolbar",
+            //    stylesheets: ["http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css", "css/editor.css"],
+            //    parserRules: wysihtml5ParserRules
             //});
 
+            //SetMenuSlideOuts();
+
         </script>
+
 </body>
 </html>
