@@ -1,4 +1,8 @@
 ﻿
+var journalVM;
+var journalDAL;
+
+
 $(document).ready(function () {
 
 
@@ -11,15 +15,10 @@ $(document).ready(function () {
 
         SetMenuSlideOuts();
 
-        var journalVM = new JournalPageViewModel();
-
-        var journalDAL = new JouranlDAL(journalVM);
-
-        var siteID = location;
-
+         journalVM = new JournalPageViewModel();
+         journalDAL = new JournalDAL();
+        var siteID = location.search.split("=")[1];
        journalDAL.GetJournals(siteID, journalVM.loadJournals);
-
-
        ko.applyBindings(journalVM);
 
     // stop one browser detection

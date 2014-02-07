@@ -10,7 +10,7 @@ window.traveloggia.Map = function Map(data) {
     this.CreateDate = ko.observable(data.CreateDate);
     this.LastRevision = ko.observable(data.LastRevision);
     this.MemberID = ko.observable(data.MemberID);
-    this.Sites = ko.observableArray(data.Sites);
+    this.Sites = ko.observableArray();
 }
 
 
@@ -32,17 +32,18 @@ window.traveloggia.Site = function Site(data) {
     this.Description = ko.observable(data.Description);
     this.DateAdded = ko.observable(data.DateAdded);
     this.FromPhone = ko.observable(data.FromPhone);
-    this.Photos = ko.observableArray(data.Photos);
+    this.Photos = ko.observableArray();
 }
 
 
-window.traveloggia.Photo = function Photo(data,mapName) {
+window.traveloggia.Photo = function Photo(data, mapName) {
     this.PhotoID = ko.observable(data.PhotoID);
     this.FileName = ko.observable(data.FileName);
     this.Caption = ko.observable(data.Caption);
     this.SiteID = ko.observable(data.SiteID);
 
     this.FromPhone = ko.observable(data.FromPhone);
+    
     this.path = ko.computed( function(){  
         return "http://www.traveloggia.net/upload/1/" + mapName + "/" + this.FileName();
     }, this);

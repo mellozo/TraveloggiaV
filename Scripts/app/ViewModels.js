@@ -17,9 +17,7 @@ function ViewModel() {
     this.screenSize = ko.observable();
     this.currentZoom = ko.observable();
     this.currentCenter = ko.observable();
-    this.selectSite = function (event) {
-        alert(event.target.id);
-    };
+    
 
 
     this.loadMaps = function (arrayOjson) {
@@ -28,7 +26,7 @@ function ViewModel() {
 
         //update view model defaults to most recent map is selected map
         self.selectedMap.valueWillMutate();
-        self.selectedMap(maps[0]);
+        self.selectedMap(maps[window.traveloggia.CRUD.mapIndex]);
         self.selectedMap.valueHasMutated();
 
         //update view model with list of maps
@@ -36,16 +34,16 @@ function ViewModel() {
         ko.utils.arrayPushAll(window.traveloggia.ViewModel.mapList, maps);
         self.mapList.valueHasMutated();
 
+        self.clearPreviousSite();
         //update view model with default selected maps' sites
-        if (arrayOjson[0].Sites.length > 0) {
-            self.loadSites(arrayOjson[0].Sites);
+        if (arrayOjson[window.traveloggia.CRUD.mapIndex].Sites.length > 0 ) {
+            self.loadSites(arrayOjson[window.traveloggia.CRUD.mapIndex].Sites);
         }// end if default map has any sites
         //else {
         //    // create a default site?
         //}
 
-        if (arrayOjson[0].Sites[0].Photos.length > 0)
-            self.loadPhotos(arrayOjson[0].Sites[0].Photos);
+     
     };
 
 
@@ -66,18 +64,21 @@ function ViewModel() {
         //// create models from json
         var sites = $.map(arrayOjson, function (item) { return new window.traveloggia.Site(item); });
         //// update view model selected site        
-        self.selectedSite(arrayOjson[0]);
+        self.selectedSite(sites[window.traveloggia.CRUD.siteIndex]);
 
         //// update view model site list
         self.siteList.valueWillMutate();
         ko.utils.arrayPushAll(window.traveloggia.ViewModel.siteList, sites);
         self.siteList.valueHasMutated();
 
+        if (arrayOjson[window.traveloggia.CRUD.siteIndex].Photos.length > 0)
+            self.loadPhotos(arrayOjson[window.traveloggia.CRUD.siteIndex].Photos);
+
+
         // method defined on map.js
         AddSitesToMap(arrayOjson);
 
-        if(arrayOjson[0].Photos.length>0)
-            self.loadPhotos(arrayOjson[0].Photos)
+
 
     };
 

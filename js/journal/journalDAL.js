@@ -3,27 +3,48 @@ function JournalDAL() {
 
     var self = this;
 
-    this.insertJournal = function (journalEntry, siteID, memberID) {
+
+    this.GetJournals = function (siteID, callback) {
+
+        $.ajax(
+                    {
+                        url: "http://www.traveloggiaservices.net.rosebloom.arvixe.com/api/Journal/" + siteID,
+                        dataType: "json"
+                    })
+                .done(function (entries) {
+
+                    callback(entries);
+
+                })
+
+                .fail(function (x, y, z) {
+                    // alert("disaster" + z + y);
+                });
+
+    }
+
+
+    this.insertJournal = function (journalEntry, siteID, memberID,title) {
 
         var Journal = {
             // JournalID: null,
-            SiteID: 9778,
+            SiteID:siteID,
 
             Text: journalEntry,
             KeyWords: "",
             DateAdded: new Date().now,
             JournalDate: new Date().now,
             FromPhone: false,
-            Title: "yo",
+            Title: title,
             MemberID: memberID
 
         }
 
         $.ajax(
                  {
-                     url: "http://localhost/TraveloggiaV_Services/api/Journal",
+                     url: "http://www.traveloggiaServices.net.rosebloom.arvixe.com/api/Journal",
                      type: "POST",
-                     dataType: "json",
+                   
                      data: Journal
 
                  })
@@ -32,7 +53,7 @@ function JournalDAL() {
 
              })
              .fail(function (x, y, z) {
-                 alert(z);
+                // alert(z);
              });
 
 
@@ -41,25 +62,6 @@ function JournalDAL() {
 
 
 
-    this.GetJournals = function (siteID, callback) {
-
-        $.ajax(
-                    {
-                        url: "http://localhost/TraveloggiaV_Services/api/Journal/" + siteID,
-                        type: "GET",
-                        contentType: "application/json; charset=utf-8",
-                        dataType: "json"
-                    })
-                .done(   function (entries) {
-
-                    callback(entries);
-
-                    } )
-
-                .fail(function (x, y, z) {
-                    // alert("disaster" + z + y);
-                });
-
-    }
+   
 
 }

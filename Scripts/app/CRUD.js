@@ -9,19 +9,50 @@ window.traveloggia.CRUD = function (ko) {
     this.mapIndex = 0;
     this.siteIndex = 0;
 
+
+    this.setSiteIndex= function(index)
+    {
+        self.siteIndex = index;
+        self.setLocalStorageValue("SiteIndex", index);
+    }
+
+    this.setMapIndex= function(index)
+    {
+        self.mapIndex = index;
+        self.setLocalStorageValue("MapIndex", index);
+    }
+
+
+
+
+    this.setLocalStorageValue=function(key, value)
+    {
+        if (Modernizr.localstorage) {
+           
+            localStorage[key] = value;
+
+        } 
+
+    }
+
+
+
+
     // get methods make ajax call to DB web service  
     // wonder of EF gets child sites and photos 
     this.getMapsSitesPhotos = function (callback) {
 
         $.ajax(
            {
-               url: "api/Map",
+               url: "http://www.traveloggiaServices.net/api/Map",
                dataType: "json"
            })
        .done(function (arrayOjson) {
 
            if (arrayOjson.length > 0) {
                self.repository = arrayOjson;
+               var stringified = JSON.stringify(arrayOjson);
+               self.setLocalStorageValue("repository", stringified);
                callback(arrayOjson);
            }
            else {

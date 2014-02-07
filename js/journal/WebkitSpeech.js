@@ -74,11 +74,4 @@ function capitalize(s) {
 
 
 
-function saveJournal() {
-    var melness = editor.textareaElement.value;
-    insertJournal(melness, journalSiteID, 1);
-    
-}
-
-
 

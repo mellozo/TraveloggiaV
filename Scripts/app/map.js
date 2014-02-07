@@ -12,50 +12,53 @@ var mapTypeControlOptions = {
 };
 
 function InitMap() {
-
-    if (navigator.geolocation) {
-        // get the current location using html5 geocoding and pass coords to set opening map view
+    // this takes too long
+    //if (navigator.geolocation) {
+    //    // get the current location using html5 geocoding and pass coords to set opening map view
         
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            currentLocation = new google.maps.LatLng(lat, lng);
+    //    navigator.geolocation.getCurrentPosition(function (position) {
+    //        var lat = position.coords.latitude;
+    //        var lng = position.coords.longitude;
+    //        currentLocation = new google.maps.LatLng(lat, lng);
 
 
-            mapOptions = {
-                MapTypeControlOptions: mapTypeControlOptions,
-                center: currentLocation,
-                zoom: 13
+    //        mapOptions = {
+    //            MapTypeControlOptions: mapTypeControlOptions,
+    //            center: currentLocation,
+    //            zoom: 13
 
-            }
-
-            map = new google.maps.Map(document.getElementById("map_canvas"),
-                 mapOptions);
-
-        });
+    //        }
 
 
-    }
-    else {
-        alert("Geolocation API is not supported in your browser.");
+    //        if(!map)
+    //        map = new google.maps.Map(document.getElementById("map_canvas"),
+    //             mapOptions);
+
+    //    });
+
+
+    //}
+    //else {
+       // alert("Geolocation API is not supported in your browser.");
         // hard code a place for the map to start
-        lat = 52.516274;
-        lng = 13.377678;
+    lat =0;// 52.516274;
+    lng = 0;//13.377678;
         currentLocation = new google.maps.LatLng(lat, lng);
 
         mapOptions = {
             MapTypeControlOptions: mapTypeControlOptions,
             center: currentLocation,
-            zoom: 13
+            zoom: 2
 
         }
 
+       // if(!map)
         map = new google.maps.Map(document.getElementById("map_canvas"),
              mapOptions);
 
       
         
-    }
+   // }
 
 
     
@@ -98,19 +101,26 @@ function AddSitesToMap(sites) {
         var tip = sites[i].Name;
         var site = sites[i];
 
-        var market = new google.maps.Marker({ position: latLong, map: map, title: tip });
 
+        try {
+
+            var market = new google.maps.Marker({ position: latLong, map: map, title: tip });
+        }
+        catch (error) {
+
+            alert("cant add marker" + error);
+        }
         // this is the notorious javascript this problem, each iteration, we need a new scope or something
-        (function AttachEventHandlers(site) {
+        (function AttachEventHandlers(site,i) {
 
             google.maps.event.addListener(market, 'mouseover', function () {
-               
-               window.traveloggia.ViewModel.selectedSite(site);
+                //window.traveloggia.ViewModel.ClearPreviousSite();
+                var koSite = new window.traveloggia.Site(site);
+                window.traveloggia.ViewModel.selectedSite(koSite);
+              
                if (site.Photos.length > 0) {
                    var mapname = window.traveloggia.ViewModel.selectedMap().MapName();
-                   var firstphoto = new window.traveloggia.Photo(site.Photos[0],mapname)
-                   window.traveloggia.ViewModel.selectedImage(firstphoto);
-
+                   window.traveloggia.ViewModel.loadPhotos(site.Photos);
                }
                else
                    window.traveloggia.ViewModel.selectedImage(null);
@@ -118,17 +128,18 @@ function AddSitesToMap(sites) {
 
 
             google.maps.event.addListener(market, 'click', function () {
-                window.traveloggia.ViewModel.selectedSite(site);
-                if (site.Photos.length > 0) {
-                    window.traveloggia.ViewModel.clearPreviousSite();
-                    window.traveloggia.ViewModel.loadPhotos(site.Photos)
+               // window.traveloggia.ViewModel.selectedSite(site);
+                window.traveloggia.CRUD.setSiteIndex(i);
+                //if (site.Photos.length > 0) {
+                //    window.traveloggia.ViewModel.clearPreviousSite();
+                //    window.traveloggia.ViewModel.loadPhotos(site.Photos)
 
-                }
+                //}
                $.mobile.changePage("#site", { transition: "slide" });
             });
 
 
-        })(site);
+        })(site, i);
       
   
  
@@ -136,6 +147,8 @@ function AddSitesToMap(sites) {
         bounds.extend(latLong);
     }
 
+
+    if(map)
     map.fitBounds(bounds);
 
 }
