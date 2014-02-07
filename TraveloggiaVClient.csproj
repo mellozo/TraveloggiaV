@@ -93,6 +93,7 @@
   <ItemGroup>
     <Content Include="bin\TraveloggiaVClient.dll.config" />
     <Content Include="Default.htm" />
+    <Content Include="Default.html" />
     <Content Include="Images\003990-grunge-brushed-metal-pewter-icon-arrows-arrow-more.zip" />
     <Content Include="Images\004068-grunge-brushed-metal-pewter-icon-arrows-last-arrow-left %281%29.zip" />
     <Content Include="Images\004069-grunge-brushed-metal-pewter-icon-arrows-last-arrow-right.zip" />
