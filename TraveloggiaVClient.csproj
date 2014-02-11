@@ -41,6 +41,8 @@
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.DynamicData">
       <Private>True</Private>
     </Reference>
@@ -91,7 +93,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\TraveloggiaVClient.dll.config" />
     <Content Include="Default.htm" />
     <Content Include="Default.html" />
     <Content Include="Images\003990-grunge-brushed-metal-pewter-icon-arrows-arrow-more.zip" />
@@ -102,34 +103,7 @@
     <Content Include="obj\Debug\TraveloggiaVClient.csprojResolveAssemblyReference.cache" />
     <Content Include="Scripts\app\keystone.kml" />
     <Content Include="Scripts\app\KeystoneXLPipeline.kml" />
-    <Content Include="Scripts\app\parser\images.zip" />
     <Content Include="Scripts\app\TestData.kml" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom.zip" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\package.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\README.md" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.core.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.draggable.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.droppable.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.mouse.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.position.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.resizable.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.selectable.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.sortable.jquery.json" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui.widget.jquery.json" />
-    <Content Include="Scripts\jquery.mobile.custom.zip" />
-    <Content Include="Scripts\Map.hv7inzv.partial" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\Content\App.config.transform" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\Content\Web.config.transform" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\EntityFramework.5.0.0.nupkg" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\EntityFramework.5.0.0.nuspec" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\EntityFramework.PS3.psd1" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\EntityFramework.psd1" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\EntityFramework.psm1" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\init.ps1" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\install.ps1" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\Redirect.config" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\Redirect.VS11.config" />
-    <Content Include="Scripts\packages\repositories.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,8 +112,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\TraveloggiaVClient.dll" />
-    <Content Include="bin\TraveloggiaVClient.pdb" />
     <Content Include="css\bootstrap-theme-readable.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap-wysihtml5.css" />
@@ -206,196 +178,14 @@
     <Content Include="Scripts\app\DataModels.js" />
     <Content Include="Scripts\app\detectmobilebrowser.js" />
     <Content Include="Scripts\app\map.js" />
-    <Content Include="Scripts\app\parser\geoxmlv3.js" />
-    <Content Include="Scripts\app\parser\gmap.css" />
-    <Content Include="Scripts\app\parser\json.js" />
     <Content Include="Scripts\app\Video.js" />
     <Content Include="Scripts\app\ViewModels.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\css\no-theme\jquery-ui-1.10.0.custom.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\css\no-theme\jquery-ui-1.10.0.custom.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\AUTHORS.txt" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\demos.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\constrain-movement.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\cursor-style.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\default.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\delay-start.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\events.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\handle.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\revert.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\scroll.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\snap-to.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\sortable.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\draggable\visual-feedback.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\accepted-elements.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\default.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras2.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras2_min.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras3.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras3_min.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras4.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras4_min.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\images\high_tatras_min.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\photo-manager.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\propagation.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\revert.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\shopping-cart.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\droppable\visual-feedback.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\images\calendar.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\images\demo-config-on-tile.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\images\demo-config-on.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\images\demo-spindown-closed.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\images\demo-spindown-open.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\images\icon-docs-info.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\images\pbar-ani.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\position\cycler.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\position\default.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\position\images\earth.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\position\images\flight.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\position\images\rocket.jpg" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\position\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\animate.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\aspect-ratio.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\constrain-area.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\default.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\delay-start.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\helper.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\max-min.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\snap-to-grid.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\synchronous-resize.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\textarea.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\resizable\visual-feedback.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\selectable\default.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\selectable\display-grid.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\selectable\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\selectable\serialize.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\connect-lists-through-tabs.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\connect-lists.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\default.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\delay-start.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\display-grid.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\empty-lists.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\items.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\placeholder.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\sortable\portlets.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\widget\default.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\demos\widget\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\draggable.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\droppable.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\jQuery.widget.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\mouse.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\position.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\resizable.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\selectable.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\docs\sortable.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\external\globalize.culture.de-DE.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\external\globalize.culture.ja-JP.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\external\globalize.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\external\jquery.mousewheel.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\external\jshint.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\external\qunit.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\external\qunit.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\grunt.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\jquery-1.9.0.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\MIT-LICENSE.txt" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\animated-overlay.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\jquery-ui.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\jquery.ui.all.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\jquery.ui.base.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\jquery.ui.core.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\jquery.ui.theme.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\animated-overlay.gif" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\jquery-ui.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\jquery.ui.all.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\jquery.ui.base.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\jquery.ui.core.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\jquery.ui.resizable.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\jquery.ui.selectable.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\minified\jquery-ui.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\minified\jquery.ui.core.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\themes\no-theme\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery-ui.custom.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.core.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.draggable.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.droppable.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.mouse.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.position.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.resizable.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.selectable.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.sortable.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\jquery.ui.widget.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery-ui.custom.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.core.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.draggable.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.droppable.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.mouse.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.position.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.resizable.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.selectable.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.sortable.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\development-bundle\ui\minified\jquery.ui.widget.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\index.html" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\js\jquery-1.9.0.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\js\jquery-ui-1.10.0.custom.js" />
-    <Content Include="Scripts\jquery-ui-1.10.0.custom\jquery-ui-1.10.0.custom\js\jquery-ui-1.10.0.custom.min.js" />
-    <Content Include="Scripts\jquery.easing.1.3.js" />
-    <Content Include="Scripts\jquery.easing.compatibility.js" />
-    <Content Include="Scripts\jquery.mobile.custom\jquery.mobile.custom.css" />
-    <Content Include="Scripts\jquery.mobile.custom\jquery.mobile.custom.js" />
-    <Content Include="Scripts\jquery.mobile.custom\jquery.mobile.custom.min.css" />
-    <Content Include="Scripts\jquery.mobile.custom\jquery.mobile.custom.min.js" />
-    <Content Include="Scripts\jquery.ui.map.extensions.js" />
-    <Content Include="Scripts\jquery.ui.map.full.min.js" />
-    <Content Include="Scripts\jquery.ui.touch-punch.min.js" />
-    <Content Include="Scripts\json2.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.xml" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.xml" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\about_EntityFramework.help.txt" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\EntityFramework.PowerShell.dll" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\EntityFramework.PowerShell.Utility.dll" />
-    <Content Include="Scripts\packages\EntityFramework.5.0.0\tools\migrate.exe" />
-    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\thirdparty\jquery.easing.1.3.js" />
+    <Content Include="Scripts\thirdparty\jquery.easing.compatibility.js" />
+    <Content Include="Scripts\thirdparty\jquery.ui.map.full.min.js" />
+    <Content Include="Scripts\thirdparty\jquery.ui.touch-punch.min.js" />
+    <Content Include="Scripts\thirdparty\json2.js" />
+    <Content Include="Scripts\thirdparty\modernizr-2.6.2.js" />
     <Content Include="Styles\images\ajax-loader.gif" />
     <Content Include="Styles\images\icons-18-black.png" />
     <Content Include="Styles\images\icons-18-white.png" />
@@ -417,6 +207,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>
@@ -434,7 +225,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>13619</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/TraveloggiaVClient</IISUrl>
+          <IISUrl>http://localhost/TraveloggiaV</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

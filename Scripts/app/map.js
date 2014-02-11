@@ -100,6 +100,7 @@ function AddSitesToMap(sites) {
         var latLong = new google.maps.LatLng(sites[i].Latitude, sites[i].Longitude);
         var tip = sites[i].Name;
         var site = sites[i];
+        var index = i;
 
 
         try {
@@ -111,35 +112,22 @@ function AddSitesToMap(sites) {
             alert("cant add marker" + error);
         }
         // this is the notorious javascript this problem, each iteration, we need a new scope or something
-        (function AttachEventHandlers(site,i) {
+        (function AttachEventHandlers(param_site, param_index) {
 
             google.maps.event.addListener(market, 'mouseover', function () {
-                //window.traveloggia.ViewModel.ClearPreviousSite();
-                var koSite = new window.traveloggia.Site(site);
-                window.traveloggia.ViewModel.selectedSite(koSite);
-              
-               if (site.Photos.length > 0) {
-                   var mapname = window.traveloggia.ViewModel.selectedMap().MapName();
-                   window.traveloggia.ViewModel.loadPhotos(site.Photos);
-               }
-               else
-                   window.traveloggia.ViewModel.selectedImage(null);
+
+                window.traveloggia.ViewModel.selectSite(param_index);
+             
             });
 
 
             google.maps.event.addListener(market, 'click', function () {
-               // window.traveloggia.ViewModel.selectedSite(site);
-                window.traveloggia.CRUD.setSiteIndex(i);
-                //if (site.Photos.length > 0) {
-                //    window.traveloggia.ViewModel.clearPreviousSite();
-                //    window.traveloggia.ViewModel.loadPhotos(site.Photos)
-
-                //}
+          
                $.mobile.changePage("#site", { transition: "slide" });
             });
 
 
-        })(site, i);
+        })(site, index);
       
   
  

@@ -82,6 +82,22 @@ function ViewModel() {
 
     };
 
+    this.selectSite = function (siteIndex) {
+        window.traveloggia.CRUD.setSiteIndex(siteIndex);
+        var jsSite = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[siteIndex];
+        var koSite = new window.traveloggia.Site(jsSite);
+        window.traveloggia.ViewModel.selectedSite(koSite);
+
+        window.traveloggia.ViewModel.clearPreviousSite();
+        var sitePhotos = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[siteIndex].Photos;
+
+        if (sitePhotos.length > 0)
+            window.traveloggia.ViewModel.loadPhotos(sitePhotos);
+        else
+            window.traveloggia.ViewModel.selectedImage(null);
+
+    }
+
 
 
     this.clearPreviousSite = function()

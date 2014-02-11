@@ -14,8 +14,8 @@
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="http://code.jquery.com/ui/1.8.21/jquery-ui.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-    <script src="Scripts/jquery.ui.map.full.min.js"></script>
-    <script src="Scripts/jquery.ui.touch-punch.min.js"></script>
+    <script src="Scripts/thirdparty/jquery.ui.map.full.min.js"></script>
+    <script src="Scripts/thirdparty/jquery.ui.touch-punch.min.js"></script>
 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.0/knockout-min.js '></script>
 
@@ -266,15 +266,17 @@
             function selectSite(mel) {
                 for (var i = 0; i < window.traveloggia.ViewModel.siteList().length; i++) {
                     if (window.traveloggia.ViewModel.siteList()[i].SiteID() == mel.id) {
-                        window.traveloggia.CRUD.setSiteIndex(i);
-                        var jsSite = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[i];
-                        var koSite = new window.traveloggia.Site(jsSite);
-                        window.traveloggia.ViewModel.selectedSite(koSite);
-                        window.traveloggia.ViewModel.clearPreviousSite();
-                        var sitePhotos = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[i].Photos;
 
-                        if (sitePhotos.length > 0)
-                            window.traveloggia.ViewModel.loadPhotos(sitePhotos);
+                        window.traveloggia.ViewModel.selectSite(i);
+                        //window.traveloggia.CRUD.setSiteIndex(i);
+                        //var jsSite = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[i];
+                        //var koSite = new window.traveloggia.Site(jsSite);
+                        //window.traveloggia.ViewModel.selectedSite(koSite);
+                        //window.traveloggia.ViewModel.clearPreviousSite();
+                        //var sitePhotos = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[i].Photos;
+
+                        //if (sitePhotos.length > 0)
+                        //    window.traveloggia.ViewModel.loadPhotos(sitePhotos);
                         $.mobile.changePage("#site", { transition: "slideup" });
                         return;
                     }
@@ -426,8 +428,8 @@
 
     <!--  <script src="Scripts/json2.js"></script>-->
     <script src="Scripts/app/detectmobilebrowser.js"></script>
-    <script src="Scripts/jquery.easing.1.3.js"></script>
-    <script src="Scripts/jquery.easing.compatibility.js"></script>
+    <script src="Scripts/thirdparty/jquery.easing.1.3.js"></script>
+    <script src="Scripts/thirdparty/jquery.easing.compatibility.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.dev.js"></script>
 
 

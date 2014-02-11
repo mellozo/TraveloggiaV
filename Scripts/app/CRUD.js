@@ -8,6 +8,7 @@ window.traveloggia.CRUD = function (ko) {
     this.repository = null;
     this.mapIndex = 0;
     this.siteIndex = 0;
+   
 
 
     this.setSiteIndex= function(index)
@@ -44,7 +45,7 @@ window.traveloggia.CRUD = function (ko) {
 
         $.ajax(
            {
-               url: "http://www.traveloggiaServices.net/api/Map",
+               url: "http://localhost/TraveloggiaWebApi/api/Map",
                dataType: "json"
            })
        .done(function (arrayOjson) {
