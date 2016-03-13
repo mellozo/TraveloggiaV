@@ -8,7 +8,7 @@ function JournalDAL() {
 
         $.ajax(
                     {
-                        url: "http://www.traveloggiaservices.net.rosebloom.arvixe.com/api/Journal/" + siteID,
+                        url: "http://www.traveloggiaservices.net.rosebloom.arvixe.com/api/Journals/" + siteID,
                         dataType: "json"
                     })
                 .done(function (entries) {
@@ -42,7 +42,7 @@ function JournalDAL() {
 
         $.ajax(
                  {
-                     url: "http://www.traveloggiaServices.net.rosebloom.arvixe.com/api/Journal",
+                     url: "http://www.traveloggiaServices.net.rosebloom.arvixe.com/api/Journals",
                      type: "POST",
                    
                      data: Journal

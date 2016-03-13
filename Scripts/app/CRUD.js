@@ -35,7 +35,7 @@ window.traveloggia.CRUD = function (ko) {
         $.ajax(
            {
                 url: "http://www.traveloggiaservices.net/api/Map",
-            //   url: "http://localhost:58143/api/Map", dev
+            //   url: "http://localhost:58143/api/Map", 
                dataType: "json"
            })
        .done(function (arrayOjson) {
@@ -59,8 +59,8 @@ window.traveloggia.CRUD = function (ko) {
     this.getPhotos = function(mapIndex,siteIndex, siteID, callback){
         $.ajax(
         {
-             url: "http://traveloggiaservices.net/api/Map",
-           // url: "http://localhost:58143/api/Photos/"+siteID,
+             url: "http://traveloggiaservices.net/api/Photos/" + siteID,
+         //   url: "http://localhost:58143/api/Photos/"+siteID,
             dataType: "json"
         })
     .done(function (arrayOjson) {
