@@ -25,11 +25,13 @@
     z-index:0;
 }
 
+/*#CDDBCD; former washed out bg*/
+
 .side
 {
     width:33.333333%;
   height:100%;
-    background-color:#CDDBCD;
+    background-color:rgba(125, 161, 125, 1);
   float:right;
     position:relative;
   overflow:scroll;
@@ -101,10 +103,10 @@
    
 }
 
-
+/*#CDDBCD*/
 .sage
 {
-    background-color:#CDDBCD;
+    background-color:rgba(125, 161, 125, 1);
 }
 
 #menuContainer

@@ -19,7 +19,7 @@ function ViewModel() {
     this.currentCenter = ko.observable();
     
 
-
+//callback to CRUD.getMapsSitesPhotos
     this.loadMaps = function (arrayOjson) {
         // create models from json
         var maps = $.map(arrayOjson, function (item) { return new window.traveloggia.Map(item); });
@@ -39,13 +39,7 @@ function ViewModel() {
         if (arrayOjson[window.traveloggia.CRUD.mapIndex].Sites.length > 0 ) {
             self.loadSites(arrayOjson[window.traveloggia.CRUD.mapIndex].Sites);
         }// end if default map has any sites
-        //else {
-        //    // create a default site?
-        //}
-
-     
     };
-
 
     this.ClearPreviousMap=function()
     {
@@ -55,32 +49,31 @@ function ViewModel() {
 
     this.ClearPreviousSite = function () {
         self.photoList.removeAll();
-
     }
 
-
+    // called by ViewModel.loadMaps
     // load methods stuff view model and call map update
     this.loadSites = function (arrayOjson) {
         //// create models from json
         var sites = $.map(arrayOjson, function (item) { return new window.traveloggia.Site(item); });
         //// update view model selected site        
         self.selectedSite(sites[window.traveloggia.CRUD.siteIndex]);
-
         //// update view model site list
         self.siteList.valueWillMutate();
         ko.utils.arrayPushAll(window.traveloggia.ViewModel.siteList, sites);
         self.siteList.valueHasMutated();
-
-        if (arrayOjson[window.traveloggia.CRUD.siteIndex].Photos.length > 0)
-            self.loadPhotos(arrayOjson[window.traveloggia.CRUD.siteIndex].Photos);
-
-
         // method defined on map.js
         AddSitesToMap(arrayOjson);
+        // no longer loading maps/sites/photos all at once too slow with all the new data
+        // separate call to load photos
+        //if (arrayOjson[window.traveloggia.CRUD.siteIndex].Photos.length > 0)
+        //    self.loadPhotos(arrayOjson[window.traveloggia.CRUD.siteIndex].Photos);
 
-
-
+        window.traveloggia.CRUD.getPhotos(window.traveloggia.CRUD.mapIndex, window.traveloggia.CRUD.siteIndex, self.selectedSite().SiteID(), this.loadPhotos)
     };
+
+
+
 
     this.selectSite = function (siteIndex) {
         window.traveloggia.CRUD.setSiteIndex(siteIndex);
@@ -91,37 +84,38 @@ function ViewModel() {
         window.traveloggia.ViewModel.clearPreviousSite();
         var sitePhotos = window.traveloggia.CRUD.repository[window.traveloggia.CRUD.mapIndex].Sites[siteIndex].Photos;
 
-        if (sitePhotos.length > 0)
-            window.traveloggia.ViewModel.loadPhotos(sitePhotos);
-        else
-            window.traveloggia.ViewModel.selectedImage(null);
-
+        if (sitePhotos == null)
+        {
+            window.traveloggia.CRUD.getPhotos(window.traveloggia.CRUD.mapIndex, window.traveloggia.CRUD.siteIndex, self.selectedSite().SiteID(), this.loadPhotos)
+        }
+        else {
+            if (sitePhotos.length > 0)
+                window.traveloggia.ViewModel.loadPhotos(sitePhotos);
+            else
+                window.traveloggia.ViewModel.selectedImage(null);
+        }
     }
+
+
+
 
 
 
     this.clearPreviousSite = function()
     {
         self.photoList.removeAll();
-
     }
 
 
     this.loadPhotos = function (arrayOjson){
-
         var mapname = self.selectedMap().MapName();
         var photos = $.map(arrayOjson, function (item) { return new window.traveloggia.Photo(item, mapname); }); {
-
-
            // self.selectedImage.valueWillMutate();
             self.selectedImage(photos[0]);
           //  self.selectedImage.valueHasMutated();
-
-
             self.photoList.valueWillMutate();
             ko.utils.arrayPushAll(self.photoList, photos);
             self.photoList.valueHasMutated();
-
         };
 
       //  var sitephotos = new Array();

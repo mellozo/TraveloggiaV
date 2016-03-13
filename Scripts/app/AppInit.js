@@ -9,8 +9,6 @@ $(document).on("mobileinit", function () {
 
 $(document).ready(function () {
 
-
-
     SetMapSize();
 
     InitMap();
@@ -18,12 +16,10 @@ $(document).ready(function () {
     SetMenuSlideOuts();
 
     if (window.traveloggia.ViewModel ===undefined) {
-
         window.traveloggia.CRUD = new window.traveloggia.CRUD(ko);
         window.traveloggia.ViewModel = new ViewModel(ko);
 
         if (Modernizr.localstorage && localStorage["repository"]) {
-
             var mapIndex = localStorage["MapIndex"];
             var siteIndex = localStorage["SiteIndex"];
             if (mapIndex)
@@ -48,7 +44,6 @@ $(document).ready(function () {
         {
             window.traveloggia.CRUD.getMapsSitesPhotos(window.traveloggia.ViewModel.loadMaps);
         }
-
     }
 
     ko.applyBindings(window.traveloggia.ViewModel);
